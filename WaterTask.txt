@@ -1,0 +1,42 @@
+basket_3L = 0
+basket_5L = 0
+while basket_5L != 4:
+    print("В ведре объемом 3л - " + str(basket_3L) + " л воды", "в ведре объемом 5л - " + str(basket_5L) + " л воды")
+    x = int(input ("Выберите 1, если хотите добавить воды в одно из вёдер; выберите 2, если хотите перелить воду; выберите 3, если хотите вылить воду : "))
+    if x == 1:
+         v = int(input ("Добавить воду в ведро с объемом v = "))
+         n = int(input ("Количество литров, добавляемых в ведро = "))
+         if n == 3:
+             basket_3L = int(v) + basket_3L
+         elif n == 5:
+            basket_5L = int(v) + basket_5L
+         else:
+                print("нет подходящего ведра")
+    elif x == 2:
+        y = n = int(input ("Перелить из ведра объемом = "))
+        if n == 3:
+            basket_5L = basket_3L + basket_5L
+            basket_3L = 0
+            if basket_5L > 5:
+                basket_3L = basket_5L - 5
+                basket_5L = 5
+        elif n == 5:
+            basket_3L = basket_3L + basket_5L
+            basket_5L = 0
+            if basket_3L > 3:
+                basket_5L = basket_3L - 3
+                basket_3L = 3
+        else:
+            print("Нет подходящего ведра")
+    elif x == 3:
+        z = n = int(input("Вылить из ведра объемом = "))
+        if n == 3:
+            basket_3L = 0
+        elif n == 5:
+            basket_5L = 0
+        else:
+            print("нет подходящего ведра")
+    else:
+        print("выберите вариант 1 или вариант 2")
+if basket_5L == 4:
+  print("В ведре объемом 3л - " + str(basket_3L) + " л воды", "в ведре объемом 5л - " + str(basket_5L) + " л воды")
